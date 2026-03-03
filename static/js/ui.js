@@ -763,7 +763,7 @@
     }
 
     if (kind === "home") {
-      context.textContent = "Always-on settings and global search";
+      context.textContent = "";
       return;
     }
 
