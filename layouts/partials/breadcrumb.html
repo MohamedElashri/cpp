@@ -129,8 +129,17 @@
 
 <nav class="breadcrumb">
   <a href="{{ "" | relURL }}">Home</a>
+  {{/* Strip the site sub-path prefix (e.g. "cpp" from baseURL "/cpp/") so
+       breadcrumb segments reflect content hierarchy, not the server sub-path.
+       E.g. RelPermalink "/cpp/c/preprocessor/" → path "cpp/c/preprocessor"
+       → after strip → "c/preprocessor" → crumbs: C / Preprocessor  */}}
+  {{ $baseSeg := strings.TrimSuffix "/" (strings.TrimPrefix "/" (urls.Parse site.BaseURL).Path) }}
+  {{ $crumbPath := .path }}
+  {{ if and $baseSeg (strings.HasPrefix $crumbPath (printf "%s/" $baseSeg)) }}
+    {{ $crumbPath = strings.TrimPrefix (printf "%s/" $baseSeg) $crumbPath }}
+  {{ end }}
   {{ $accum := "" }}
-  {{ range (split .path "/") }}
+  {{ range (split $crumbPath "/") }}
     {{ if eq $accum "" }}
       {{ $accum = . }}
     {{ else }}
