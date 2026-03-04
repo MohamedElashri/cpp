@@ -128,11 +128,15 @@
 }}
 
 <nav class="breadcrumb">
-  <a href="{{ (urls.Parse .Site.BaseURL).Path }}">Home</a>
+  <a href="{{ "" | relURL }}">Home</a>
   {{ $accum := "" }}
   {{ range (split .path "/") }}
-    {{ $accum = printf "%s/%s" $accum . }}
+    {{ if eq $accum "" }}
+      {{ $accum = . }}
+    {{ else }}
+      {{ $accum = printf "%s/%s" $accum . }}
+    {{ end }}
     {{ $lbl := index $labels . | default (title .) }}
-    <span> / </span><a href="{{ $accum }}/">{{ $lbl }}</a>
+    <span> / </span><a href="{{ printf "%s/" $accum | relURL }}">{{ $lbl }}</a>
   {{ end }}
 </nav>
