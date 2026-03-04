@@ -4,7 +4,7 @@
   <h1>404: Page not found</h1>
   <p id="ghp-404-message">
     The page does not exist. Try the lowercase canonical URL or return to
-    <a href="/">Home</a>.
+    <a href="{{ "/" | relURL }}">Home</a>.
   </p>
 </section>
 
@@ -191,7 +191,7 @@
     var messageEl = document.getElementById("ghp-404-message");
     if (messageEl) {
       messageEl.innerHTML =
-        'Page not found. Return to <a href="/">Home</a> or verify the URL path.';
+        'Page not found. Return to <a href="{{ "/" | relURL }}">Home</a> or verify the URL path.';
     }
   })();
 </script>

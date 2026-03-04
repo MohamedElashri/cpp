@@ -26,10 +26,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2" />
-    <link rel="shortcut icon" href="/favicon.png?v=2" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ "/favicon.png" | relURL }}?v=2" />
+    <link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relURL }}?v=2" />
+    <link rel="shortcut icon" href="{{ "/favicon.png" | relURL }}?v=2" />
+    <link rel="stylesheet" href="{{ "/css/main.css" | relURL }}" />
   </head>
   <body
     data-page-title="{{ .Title }}"
@@ -53,15 +53,15 @@
             <span class="top-nav-caret" aria-hidden="true">▼</span>
           </button>
           <div id="top-nav-menu" class="top-nav-menu" hidden>
-            <a class="top-nav-link" href="/cpp/">C++ reference</a>
-            <a class="top-nav-link" href="/c/">C reference</a>
-            <a class="top-nav-link" href="/reference-map/">Reference map</a>
+            <a class="top-nav-link" href="{{ "/cpp/" | relURL }}">C++ reference</a>
+            <a class="top-nav-link" href="{{ "/c/" | relURL }}">C reference</a>
+            <a class="top-nav-link" href="{{ "/reference-map/" | relURL }}">Reference map</a>
             <div class="top-nav-separator" aria-hidden="true"></div>
-            <a class="top-nav-link" href="/cpp/ranges/">Ranges</a>
-            <a class="top-nav-link" href="/cpp/algorithm/">Algorithms</a>
-            <a class="top-nav-link" href="/cpp/container/">Containers</a>
-            <a class="top-nav-link" href="/cpp/string/">Strings</a>
-            <a class="top-nav-link" href="/cpp/io/">Input/output</a>
+            <a class="top-nav-link" href="{{ "/cpp/ranges/" | relURL }}">Ranges</a>
+            <a class="top-nav-link" href="{{ "/cpp/algorithm/" | relURL }}">Algorithms</a>
+            <a class="top-nav-link" href="{{ "/cpp/container/" | relURL }}">Containers</a>
+            <a class="top-nav-link" href="{{ "/cpp/string/" | relURL }}">Strings</a>
+            <a class="top-nav-link" href="{{ "/cpp/io/" | relURL }}">Input/output</a>
           </div>
         </div>
         <span id="top-context" class="top-context"></span>
@@ -171,8 +171,8 @@
       <p class="spotlight-help">Enter: open · ↑/↓: move · Backspace/Delete: remove selected when query is empty</p>
       <ul class="spotlight-results" role="listbox" aria-label="Bookmarks"></ul>
     </dialog>
-    <script src="/js/min-standard.js" defer></script>
-    <script src="/js/search.js" defer></script>
-    <script src="/js/ui.js" defer></script>
+    <script src="{{ "/js/min-standard.js" | relURL }}" defer></script>
+    <script src="{{ "/js/search.js" | relURL }}" defer></script>
+    <script src="{{ "/js/ui.js" | relURL }}" defer></script>
   </body>
 </html>
