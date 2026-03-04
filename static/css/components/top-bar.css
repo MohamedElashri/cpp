@@ -50,6 +50,11 @@
   letter-spacing: -0.01em;
 }
 
+.top-home-btn {
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
 .top-nav {
   position: relative;
   flex: 0 0 auto;
