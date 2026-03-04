@@ -129,7 +129,7 @@
     if (configured) {
       return new URL(configured, document.baseURI).toString();
     }
-    return new URL("/search-index.json", document.baseURI).toString();
+    return new URL("search-index.json", document.baseURI).toString();
   };
 
   const filterByScope = (items, widget) => {
