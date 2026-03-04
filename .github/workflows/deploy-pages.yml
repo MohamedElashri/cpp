@@ -55,7 +55,7 @@ jobs:
         run: python3 tools/build_search_index.py
 
       - name: Build site
-        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --minify
 
       - name: Minimal output smoke check
         run: python3 tools/smoke_check.py
