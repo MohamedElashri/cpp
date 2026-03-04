@@ -1,6 +1,8 @@
 (() => {
   "use strict";
 
+  const BASE_PATH = (document.documentElement.dataset.basePath || "/").replace(/\/$/, "");
+
   const MAX_RESULTS = 10;
   const DEBOUNCE_MS = 80;
   const CACHE_KEY = "mcr_search_index_v1";
@@ -249,7 +251,7 @@
       a.setAttribute("role", "option");
       a.setAttribute("aria-selected", index === activeIndex ? "true" : "false");
       if (index === activeIndex) a.classList.add("is-active");
-      a.href = item.url;
+      a.href = BASE_PATH + item.url;
 
       const title = document.createElement("span");
       title.className = "search-title";
@@ -446,7 +448,7 @@
       if (event.key === "Enter") {
         event.preventDefault();
         const target = shown[activeIndex] || shown[0];
-        if (target && target.url) window.location.assign(target.url);
+        if (target && target.url) window.location.assign(BASE_PATH + target.url);
       }
     });
 
