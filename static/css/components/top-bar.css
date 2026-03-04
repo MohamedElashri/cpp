@@ -19,9 +19,9 @@
   top: 0.6rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(960px, calc(100vw - 3rem));
+  width: min(1120px, calc(100vw - 2rem));
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 1fr) auto;
+  grid-template-columns: minmax(14rem, 1.5fr) minmax(16rem, 1fr) auto;
   align-items: center;
   gap: 0.75rem;
   min-height: 2.6rem;
@@ -39,6 +39,7 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
+  overflow: hidden;
 }
 
 .top-brand {
@@ -131,6 +132,7 @@
 
 .top-context {
   min-width: 0;
+  flex: 1 1 0;
   color: var(--text-muted);
   font-size: 0.8rem;
   white-space: nowrap;
