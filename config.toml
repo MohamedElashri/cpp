@@ -1,5 +1,5 @@
 baseURL = "https://melashri.net/cpp/"
-title = "cppdocs.dev"
+title = "Modern C/C++ Reference"
 contentDir = "content"
 languageCode = "en-us"
 
