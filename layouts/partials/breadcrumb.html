@@ -128,7 +128,7 @@
 }}
 
 <nav class="breadcrumb">
-  <a href="{{ "/" | relURL }}">Home</a>
+  <a href="{{ "" | relURL }}">Home</a>
   {{ $accum := "" }}
   {{ range (split .path "/") }}
     {{ $accum = printf "%s/%s" $accum . }}
