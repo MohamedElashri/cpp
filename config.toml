@@ -1,4 +1,4 @@
-baseURL = "http://localhost/"
+baseURL = "https://melashri.net/cpp/"
 title = "cppdocs.dev"
 contentDir = "content"
 languageCode = "en-us"
