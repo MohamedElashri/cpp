@@ -39,6 +39,7 @@ jobs:
           python-version: '3.12'
 
       - name: Configure Pages
+        id: pages
         uses: actions/configure-pages@v5
 
       - name: Generate reference map
@@ -54,7 +55,7 @@ jobs:
         run: python3 tools/build_search_index.py
 
       - name: Build site
-        run: hugo --minify
+        run: hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Minimal output smoke check
         run: python3 tools/smoke_check.py
