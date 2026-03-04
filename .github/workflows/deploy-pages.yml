@@ -57,6 +57,9 @@ jobs:
       - name: Build site
         run: hugo --minify
 
+      - name: Fix subpath links in built HTML
+        run: python3 tools/fix_subpath_links.py public /cpp
+
       - name: Minimal output smoke check
         run: python3 tools/smoke_check.py
 
