@@ -7,7 +7,7 @@
   {{ $extraClass = . }}
 {{ end }}
 {{ $sourcePath := $page.Params.source_path | default "" }}
-{{ $isCppOverview := or (strings.HasPrefix $sourcePath "cpp") (eq $page.RelPermalink "/cpp/") (strings.HasPrefix $page.RelPermalink "/cpp/") }}
+{{ $isCppOverview := or (strings.HasPrefix $sourcePath "cpp") (eq $page.Section "cpp") }}
 <article class="overview-page{{ with $page.Params.overview_page_class }} {{ . }}{{ end }}{{ with $extraClass }} {{ . }}{{ end }}">
   {{- with $page.Params.source_path -}}
     {{ partial "breadcrumb.html" (dict "path" .) }}

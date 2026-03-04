@@ -21,7 +21,7 @@
         ☆ Pin
       </button>
     </div>
-    {{ if hasPrefix .RelPermalink "/cpp/" }}
+    {{ if eq .Section "cpp" }}
       <div class="min-standard-page-notice" data-min-standard-page-notice hidden>
         <span class="min-standard-page-notice-label">Min standard notice:</span>
         <span data-min-standard-page-notice-text></span>
