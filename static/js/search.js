@@ -5,7 +5,7 @@
 
   const MAX_RESULTS = 10;
   const DEBOUNCE_MS = 80;
-  const CACHE_KEY = "mcr_search_index_v1";
+  const CACHE_KEY = "mcr_search_index_v3";
   const MIN_STANDARD_KEY = "cppdocs.min_standard";
   const minStandardApi = window.cppdocsMinStandard || null;
   const VALID_MIN_STANDARDS = new Set(["any", "c++11", "c++14", "c++17", "c++20", "c++23", "c++26"]);
@@ -75,6 +75,18 @@
     }
   };
 
+  const withBasePath = (url) => {
+    if (!url) return BASE_PATH || "/";
+    const text = String(url).trim();
+    if (!text) return BASE_PATH || "/";
+    if (/^[a-z][a-z0-9+.-]*:/i.test(text) || text.startsWith("//")) return text;
+
+    const base = BASE_PATH || "";
+    if (!base) return text.startsWith("/") ? text : `/${text}`;
+    if (text === base || text.startsWith(`${base}/`)) return text;
+    return `${base}${text.startsWith("/") ? text : `/${text}`}`;
+  };
+
   const debounce = (fn, wait) => {
     let timer = null;
     return (...args) => {
@@ -126,12 +138,25 @@
     });
   };
 
-  const getSearchIndexUrl = () => {
+  const uniqueUrls = (urls) => {
+    const seen = new Set();
+    return urls.filter((url) => {
+      if (!url || seen.has(url)) return false;
+      seen.add(url);
+      return true;
+    });
+  };
+
+  const getSearchIndexUrls = () => {
     const configured = document.documentElement.getAttribute("data-search-index-url");
+    const urls = [];
     if (configured) {
-      return new URL(configured, document.baseURI).toString();
+      urls.push(new URL(configured, document.baseURI).toString());
     }
-    return new URL("search-index.json", document.baseURI).toString();
+    urls.push(new URL(withBasePath("/search-index.json"), document.baseURI).toString());
+    urls.push(new URL("/search-index.json", document.baseURI).toString());
+    urls.push(new URL("search-index.json", document.baseURI).toString());
+    return uniqueUrls(urls);
   };
 
   const filterByScope = (items, widget) => {
@@ -251,7 +276,7 @@
       a.setAttribute("role", "option");
       a.setAttribute("aria-selected", index === activeIndex ? "true" : "false");
       if (index === activeIndex) a.classList.add("is-active");
-      a.href = BASE_PATH + item.url;
+      a.href = withBasePath(item.url);
 
       const title = document.createElement("span");
       title.className = "search-title";
@@ -334,11 +359,20 @@
       return Promise.resolve(loadedItems);
     }
 
-    loadPromise = fetch(getSearchIndexUrl())
-      .then((resp) => (resp.ok ? resp.json() : []))
+    loadPromise = getSearchIndexUrls()
+      .reduce(
+        (promise, url) =>
+          promise.catch(() =>
+            fetch(url).then((resp) => {
+              if (!resp.ok) throw new Error(`Search index request failed: ${resp.status}`);
+              return resp.json();
+            }),
+          ),
+        Promise.reject(new Error("Search index not loaded")),
+      )
       .then((items) => {
         loadedItems = Array.isArray(items) ? items : [];
-        saveToSession(loadedItems);
+        if (loadedItems.length) saveToSession(loadedItems);
         return loadedItems;
       })
       .catch(() => {
@@ -448,7 +482,7 @@
       if (event.key === "Enter") {
         event.preventDefault();
         const target = shown[activeIndex] || shown[0];
-        if (target && target.url) window.location.assign(BASE_PATH + target.url);
+        if (target && target.url) window.location.assign(withBasePath(target.url));
       }
     });
 

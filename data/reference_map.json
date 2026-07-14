@@ -4,7 +4,7 @@
   "domains": {
     "cpp": {
       "source_root": "content/cpp",
-      "area_count": 33,
+      "area_count": 34,
       "areas": [
         {
           "key": "language",
@@ -239,18 +239,18 @@
               "title": "std::sort",
               "url": "/cpp/algorithm/sort/",
               "source_path": "cpp/algorithm/sort",
-              "since": "C++17"
+              "since": "C++98"
             },
             {
               "title": "std::find, std::find_if, std::find_if_not",
               "url": "/cpp/algorithm/find/",
-              "source_path": "cpp/algorithm/find",
-              "since": "C++26"
+              "source_path": "cpp/algorithm/find"
             },
             {
               "title": "std::accumulate",
               "url": "/cpp/algorithm/accumulate/",
-              "source_path": "cpp/algorithm/accumulate"
+              "source_path": "cpp/algorithm/accumulate",
+              "since": "C++98"
             },
             {
               "title": "Constrained algorithms (since C++20)",
@@ -296,7 +296,7 @@
               "title": "std::copy, std::copy_if",
               "url": "/cpp/algorithm/copy/",
               "source_path": "cpp/algorithm/copy",
-              "since": "C++17"
+              "since": "C++98"
             }
           ]
         },
@@ -1343,7 +1343,8 @@
             {
               "title": "Coroutine support library",
               "url": "/cpp/coroutine/",
-              "source_path": "cpp/coroutine"
+              "source_path": "cpp/coroutine",
+              "since": "C++20"
             },
             {
               "title": "std::coroutine_handle, std::noop_coroutine_handle",
@@ -1410,6 +1411,48 @@
               "url": "/cpp/coroutine/coroutine_handle/done/",
               "source_path": "cpp/coroutine/coroutine_handle/done",
               "since": "C++20"
+            }
+          ]
+        },
+        {
+          "key": "cuda",
+          "title": "Cuda",
+          "entry_count": 7,
+          "entries": [
+            {
+              "title": "CUDA C++",
+              "url": "/cpp/cuda/",
+              "source_path": "cpp/cuda"
+            },
+            {
+              "title": "CUDA execution configuration",
+              "url": "/cpp/cuda/execution_configuration/",
+              "source_path": "cpp/cuda/execution_configuration"
+            },
+            {
+              "title": "CUDA function qualifiers",
+              "url": "/cpp/cuda/function_qualifiers/",
+              "source_path": "cpp/cuda/function_qualifiers"
+            },
+            {
+              "title": "CUDA kernel",
+              "url": "/cpp/cuda/kernel/",
+              "source_path": "cpp/cuda/kernel"
+            },
+            {
+              "title": "CUDA memory model",
+              "url": "/cpp/cuda/memory/",
+              "source_path": "cpp/cuda/memory"
+            },
+            {
+              "title": "CUDA Runtime API basics",
+              "url": "/cpp/cuda/runtime_api/",
+              "source_path": "cpp/cuda/runtime_api"
+            },
+            {
+              "title": "CUDA thread hierarchy",
+              "url": "/cpp/cuda/thread_hierarchy/",
+              "source_path": "cpp/cuda/thread_hierarchy"
             }
           ]
         },
