@@ -18,6 +18,7 @@ This section starts with the core concepts needed to read and write simple CUDA 
 | [Memory model](memory/) | Host memory, device memory, shared memory, local memory, and transfers |
 | [Function qualifiers](function_qualifiers/) | `__global__`, `__device__`, and `__host__` |
 | [Runtime API basics](runtime_api/) | Allocation, copies, synchronization, and error checking |
+| [CUDA C++ Standard Library](standard_library/) | `cuda::std`, `cuda::`, libcu++, and CCCL library facilities |
 
 ## Minimal program shape
 
@@ -53,6 +54,7 @@ The starter pages focus on CUDA C++ language and runtime fundamentals:
 - how GPU work is divided into grids, blocks, and threads;
 - how common memory spaces affect visibility and lifetime;
 - how host code coordinates allocation, transfer, launch, and synchronization.
+- how libcu++ brings selected C++ Standard Library facilities and CUDA-specific extensions into host/device code.
 
 Advanced CUDA features such as streams, events, graphs, cooperative groups, dynamic parallelism, texture memory, and library-specific APIs can be added later as separate pages.
 
@@ -60,3 +62,5 @@ Advanced CUDA features such as streams, events, graphs, cooperative groups, dyna
 
 - [NVIDIA CUDA Programming Guide](https://docs.nvidia.com/cuda/cuda-programming-guide/index.html)
 - [NVIDIA CUDA Runtime API](https://docs.nvidia.com/cuda/cuda-runtime-api/index.html)
+- [NVIDIA CUDA Core Compute Libraries](https://nvidia.github.io/cccl/)
+- [NVIDIA libcu++ documentation](https://nvidia.github.io/cccl/libcudacxx/)

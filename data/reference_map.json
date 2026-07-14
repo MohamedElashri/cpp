@@ -1417,7 +1417,7 @@
         {
           "key": "cuda",
           "title": "Cuda",
-          "entry_count": 7,
+          "entry_count": 11,
           "entries": [
             {
               "title": "CUDA C++",
@@ -1450,9 +1450,29 @@
               "source_path": "cpp/cuda/runtime_api"
             },
             {
+              "title": "CUDA C++ Standard Library",
+              "url": "/cpp/cuda/standard_library/",
+              "source_path": "cpp/cuda/standard_library"
+            },
+            {
               "title": "CUDA thread hierarchy",
               "url": "/cpp/cuda/thread_hierarchy/",
               "source_path": "cpp/cuda/thread_hierarchy"
+            },
+            {
+              "title": "CUDA C++ Standard Library extensions",
+              "url": "/cpp/cuda/standard_library/extensions/",
+              "source_path": "cpp/cuda/standard_library/extensions"
+            },
+            {
+              "title": "CUDA C++ Standard Library standard API",
+              "url": "/cpp/cuda/standard_library/standard_api/",
+              "source_path": "cpp/cuda/standard_library/standard_api"
+            },
+            {
+              "title": "Using the CUDA C++ Standard Library",
+              "url": "/cpp/cuda/standard_library/usage/",
+              "source_path": "cpp/cuda/standard_library/usage"
             }
           ]
         },
