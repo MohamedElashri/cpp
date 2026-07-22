@@ -55,7 +55,7 @@ jobs:
         run: python3 tools/build_search_index.py
 
       - name: Build site
-        run: hugo --minify
+        run: hugo --minify --baseURL "https://melashri.net/cpp/"
 
       - name: Fix subpath links in built HTML
         run: python3 tools/fix_subpath_links.py public /cpp
